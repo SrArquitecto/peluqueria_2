@@ -42,6 +42,7 @@ const esquema = {
       lema={negocio.lema}
       telefono={negocio.telefono}
       whatsapp={negocio.whatsapp}
+      conFoto={Boolean(negocio.imagenPortada || negocio.imagenPortadaDerecha)}
     />
     <Servicios categorias={negocio.servicios} />
     <Sobre nombre={negocio.nombre} texto={negocio.sobre} />

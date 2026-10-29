@@ -13,8 +13,8 @@ const redesLista = Object.entries(redes).filter(([, url]) => url);
 <section id="contacto" class="scroll-mt-16 py-20">
   <div class="mx-auto grid max-w-6xl px-4 gap-12 md:grid-cols-2">
     <div>
-      <h2 class="font-display text-4xl font-extrabold tracking-tight md:text-5xl">Reserva tu cita</h2>
-      <a href={`tel:${tel}`} class="mt-6 block font-display text-4xl font-extrabold tracking-tight transition-colors hover:text-primary md:text-5xl">{telefono}</a>
+      <h2 class="font-display text-4xl font-semibold tracking-normal md:text-5xl">Reserva tu cita</h2>
+      <a href={`tel:${tel}`} class="mt-6 block font-display text-4xl font-semibold tracking-normal transition-colors hover:text-primary md:text-5xl">{telefono}</a>
       {direccion && <p class="mt-4 text-lg">{direccion}</p>}
       {email && <p class="mt-1"><a class="link" href={`mailto:${email}`}>{email}</a></p>}
       <div class="mt-6 flex flex-wrap gap-3">
@@ -30,7 +30,7 @@ const redesLista = Object.entries(redes).filter(([, url]) => url);
       )}
     </div>
     <div>
-      <h3 class="font-display text-2xl font-bold">Horario</h3>
+      <h3 class="font-display text-2xl font-semibold">Horario</h3>
       <ul class="mt-4 divide-y divide-base-300 border-y border-base-300">
         {horario.map((h) => (
           <li class="flex justify-between gap-4 py-3">

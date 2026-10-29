@@ -2,6 +2,6 @@
 const { telefono } = Astro.props;
 const tel = telefono.replace(/[^\d+]/g, "");
 ---
-<div class="fixed inset-x-0 bottom-0 z-30 border-t border-base-300 bg-base-100 p-3 sm:hidden">
+<div class="fixed inset-x-0 bottom-0 z-30 border-t border-base-300 bg-base-100 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:hidden">
   <a href={`tel:${tel}`} class="btn btn-primary btn-block">Llamar: {telefono}</a>
 </div>

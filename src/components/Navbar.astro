@@ -7,10 +7,10 @@ const enlaces = [
   { href: "#contacto", texto: "Contacto" },
 ];
 ---
-<header class="sticky top-0 z-30 bg-neutral/85">
+<header class="sticky top-0 z-30 bg-base-100/90 border-b border-base-300 backdrop-blur-sm">
   <nav class="navbar mx-auto max-w-6xl px-4" aria-label="Principal">
     <div class="navbar-start">
-      <a href="#inicio" class="font-display text-xl font-extrabold tracking-tight">{nombre}</a>
+      <a href="#inicio" class="font-display text-xl font-semibold tracking-normal">{nombre}</a>
     </div>
     <div class="navbar-end gap-2">
       <ul class="menu menu-horizontal hidden sm:flex">
@@ -18,7 +18,7 @@ const enlaces = [
           <li><a href={e.href}>{e.texto}</a></li>
         ))}
       </ul>
-      <a href={`tel:${tel}`} class="btn btn-sm btn-primary">Llamar</a>
+      <a href={`tel:${tel}`} class="btn btn-sm btn-primary hidden sm:inline-flex">Llamar</a>
     </div>
   </nav>
 </header>
