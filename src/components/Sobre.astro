@@ -1,9 +1,13 @@
 ---
-const { nombre, texto } = Astro.props;
+const { nombre, texto, imagen } = Astro.props;
 ---
-<section id="sobre" class="scroll-mt-16 bg-neutral/85 py-20 text-neutral-content">
-  <div class="mx-auto grid max-w-6xl px-4 gap-8 md:grid-cols-[1fr_2fr] md:gap-12">
-    <h2 class="font-display text-4xl font-semibold tracking-normal md:text-5xl">Sobre {nombre}</h2>
-    <p class="max-w-[60ch] text-xl leading-relaxed md:text-2xl">{texto}</p>
+<section id="sobre" class="scroll-mt-16 bg-base-200/85 py-20">
+  <div class:list={["mx-auto grid max-w-6xl items-center gap-10 px-4 md:gap-16", imagen && "md:grid-cols-[1fr_1.2fr]"]}>
+    {imagen && <img src={imagen} alt="" loading="lazy" class="aspect-[4/5] w-full max-w-sm rounded-box object-cover md:max-w-none" />}
+    <div>
+      <span class="mb-6 block h-px w-16 bg-primary" aria-hidden="true"></span>
+      <h2 class="font-display text-4xl font-semibold md:text-5xl">Sobre {nombre}</h2>
+      <p class="mt-6 max-w-[60ch] text-lg leading-relaxed md:text-xl">{texto}</p>
+    </div>
   </div>
 </section>

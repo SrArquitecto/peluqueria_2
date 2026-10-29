@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-const { titulo, descripcion, color, colorContenido, imagen, imagenDerecha } = Astro.props;
+const { titulo, descripcion, color, colorContenido, imagen } = Astro.props;
 
 // El color principal de cada cliente sustituye al del tema sin tocar el diseño.
 const estilo = [
@@ -24,18 +24,17 @@ const estilo = [
     <meta property="og:type" content="website" />
     <slot name="head" />
   </head>
-  <body class="relative">
-    <div class="pointer-events-none fixed inset-0 -z-20 bg-[linear-gradient(to_bottom,var(--color-base-100),color-mix(in_oklab,var(--color-secondary)_22%,var(--color-base-100)))]"></div>
-    {(imagen || imagenDerecha) && (
+  <body>
+    {imagen ? (
       <>
-        {imagen && (
-          <img src={imagen} alt="" fetchpriority="high" class="pointer-events-none fixed inset-y-0 left-0 -z-10 hidden h-full w-[32%] object-cover object-left-top opacity-100 md:block [mask-image:linear-gradient(to_left,transparent,black_75%)]" />
-        )}
-        {imagenDerecha && (
-          <img src={imagenDerecha} alt="" class="pointer-events-none fixed inset-y-0 right-0 -z-10 hidden h-full w-[32%] object-cover object-top opacity-80 md:block [mask-image:linear-gradient(to_right,transparent,black_80%)]" />
-        )}
-        <img src={imagen || imagenDerecha} alt="" class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[46svh] w-full object-cover object-[50%_20%] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:hidden" />
+        <div class="pointer-events-none fixed inset-0 -z-30 bg-[linear-gradient(to_bottom,#b98a62,color-mix(in_oklab,var(--color-base-300)_60%,#b98a62)_25%,var(--color-base-100)_75%)]"></div>
+        <div class="pointer-events-none fixed inset-0 -z-20 flex items-start justify-center md:items-center">
+          <img src={imagen} alt="" class="max-h-full max-w-full md:max-h-[91%] md:max-w-[91%] [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)] [mask-composite:intersect]" />
+        </div>
+        <div class="pointer-events-none fixed inset-0 -z-10 bg-base-100/50 md:bg-gradient-to-r md:from-base-30 md:from-25% md:via-base-100/60 md:via-30% md:to-base-100/15"></div>
       </>
+    ) : (
+      <div class="pointer-events-none fixed inset-0 -z-20 bg-[linear-gradient(to_bottom,var(--color-base-100),color-mix(in_oklab,var(--color-secondary)_22%,var(--color-base-100)))]"></div>
     )}
     <slot />
   </body>

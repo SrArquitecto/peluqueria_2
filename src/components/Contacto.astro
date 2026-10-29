@@ -10,16 +10,16 @@ const mapa =
 const nombresRedes = { instagram: "Instagram", facebook: "Facebook", tiktok: "TikTok" };
 const redesLista = Object.entries(redes).filter(([, url]) => url);
 ---
-<section id="contacto" class="scroll-mt-16 py-20">
+<section id="contacto" class="scroll-mt-16 bg-[color-mix(in_oklab,var(--color-primary)_45%,#6b4a35)] py-20 text-primary-content">
   <div class="mx-auto grid max-w-6xl px-4 gap-12 md:grid-cols-2">
     <div>
       <h2 class="font-display text-4xl font-semibold tracking-normal md:text-5xl">Reserva tu cita</h2>
-      <a href={`tel:${tel}`} class="mt-6 block font-display text-4xl font-semibold tracking-normal transition-colors hover:text-primary md:text-5xl">{telefono}</a>
+      <a href={`tel:${tel}`} class="mt-6 block font-display text-4xl font-semibold tracking-normal transition-colors hover:underline md:text-5xl">{telefono}</a>
       {direccion && <p class="mt-4 text-lg">{direccion}</p>}
       {email && <p class="mt-1"><a class="link" href={`mailto:${email}`}>{email}</a></p>}
       <div class="mt-6 flex flex-wrap gap-3">
-        {wa && <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">WhatsApp</a>}
-        {mapa && <a class="btn btn-outline" href={mapa} target="_blank" rel="noopener">Cómo llegar</a>}
+        {wa && <a class="btn border-0 bg-base-100 text-base-content hover:bg-base-200" href={wa} target="_blank" rel="noopener">WhatsApp</a>}
+        {mapa && <a class="btn btn-outline border-primary-content text-primary-content hover:border-primary-content hover:bg-primary-content hover:text-primary" href={mapa} target="_blank" rel="noopener">Cómo llegar</a>}
       </div>
       {redesLista.length > 0 && (
         <div class="mt-6 flex flex-wrap gap-4">
@@ -31,7 +31,7 @@ const redesLista = Object.entries(redes).filter(([, url]) => url);
     </div>
     <div>
       <h3 class="font-display text-2xl font-semibold">Horario</h3>
-      <ul class="mt-4 divide-y divide-base-300 border-y border-base-300">
+      <ul class="mt-4 divide-y divide-primary-content/30 border-y border-primary-content/30">
         {horario.map((h) => (
           <li class="flex justify-between gap-4 py-3">
             <span>{h.dias}</span>

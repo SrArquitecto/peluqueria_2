@@ -1,14 +1,15 @@
 ---
-const { nombre, lema, telefono, whatsapp, conFoto } = Astro.props;
+const { nombre, lema, telefono, whatsapp, imagen } = Astro.props;
 const tel = telefono.replace(/[^\d+]/g, "");
 const wa = whatsapp ? `https://wa.me/${whatsapp.replace(/\D/g, "")}` : "";
 ---
-<section id="inicio" class="scroll-mt-16 overflow-hidden">
-  <div class:list={["mx-auto grid max-w-6xl items-center px-4 pb-12 md:min-h-[60svh] md:py-20", conFoto ? "pt-[34svh] md:pt-20" : "pt-12"]}>
-    <div class="md:text-center">
-      <h1 class="font-display text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[1.02] tracking-normal text-balance">{nombre}</h1>
-      <p class="mt-6 max-w-md text-lg md:mx-auto">{lema}</p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-center">
+<section id="inicio" class="scroll-mt-16">
+  <div class:list={["mx-auto flex max-w-6xl items-center px-4 pb-16 md:min-h-[70svh] md:py-20", imagen ? "pt-56" : "pt-16"]}>
+    <div class="md:max-w-xl">
+      <span class="mb-6 block h-px w-16 bg-primary" aria-hidden="true"></span>
+      <h1 class="font-display text-[clamp(2.75rem,7vw,5.5rem)] font-semibold leading-[1.05] text-balance">{nombre}</h1>
+      <p class="mt-6 max-w-md font-display text-xl italic text-base-content/80">{lema}</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href={`tel:${tel}`} class="btn btn-primary btn-lg w-full sm:w-auto">Llamar para reservar</a>
         {wa && <a href={wa} target="_blank" rel="noopener" class="btn btn-lg btn-outline w-full sm:w-auto">Escribir por WhatsApp</a>}
       </div>

@@ -10,12 +10,12 @@
   name: "calido";
   default: true;
   prefersdark: false;
-  color-scheme: light;
+  color-scheme: dark;
 
-  --color-base-100: #fbf5ec;
-  --color-base-200: #f3e8d8;
-  --color-base-300: #e4d3ba;
-  --color-base-content: #3b2a20;
+  --color-base-100: #2e211b;
+  --color-base-200: #3a2a22;
+  --color-base-300: #4d392e;
+  --color-base-content: #f5e8d8;
   --color-primary: #b4532a;
   --color-primary-content: #fff8f0;
   --color-secondary: #d9a441;

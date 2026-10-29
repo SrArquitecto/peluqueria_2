@@ -32,7 +32,6 @@ const esquema = {
   color={negocio.colorPrincipal}
   colorContenido={negocio.colorSobrePrincipal}
   imagen={negocio.imagenPortada}
-  imagenDerecha={negocio.imagenPortadaDerecha}
 >
   <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(esquema)} />
   <Navbar nombre={negocio.nombre} telefono={negocio.telefono} />
@@ -42,10 +41,10 @@ const esquema = {
       lema={negocio.lema}
       telefono={negocio.telefono}
       whatsapp={negocio.whatsapp}
-      conFoto={Boolean(negocio.imagenPortada || negocio.imagenPortadaDerecha)}
+      imagen={negocio.imagenPortada}
     />
     <Servicios categorias={negocio.servicios} />
-    <Sobre nombre={negocio.nombre} texto={negocio.sobre} />
+    <Sobre nombre={negocio.nombre} texto={negocio.sobre} imagen={negocio.imagenPortadaDerecha} />
     <Galeria fotos={negocio.galeria} antesDespues={negocio.antesDespues} />
     <Opiniones opiniones={negocio.opiniones} />
     <Contacto
