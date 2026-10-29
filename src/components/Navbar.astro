@@ -8,17 +8,26 @@ const enlaces = [
 ];
 ---
 <header class="sticky top-0 z-30 bg-base-100/90 border-b border-base-300 backdrop-blur-sm">
-  <nav class="navbar mx-auto max-w-6xl px-4" aria-label="Principal">
-    <div class="navbar-start">
-      <a href="#inicio" class="font-display text-xl font-semibold tracking-normal">{nombre}</a>
+  <nav class="mx-auto grid min-h-16 max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4" aria-label="Principal">
+    <div class="flex items-center">
+      <details class="dropdown" id="menu-movil">
+        <summary class="btn btn-ghost btn-square list-none" aria-label="Menú">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </summary>
+        <ul class="menu dropdown-content z-40 mt-2 w-56 rounded-box border border-base-300 bg-base-100 p-2 shadow-lg">
+          {enlaces.map((e) => (
+            <li><a href={e.href}>{e.texto}</a></li>
+          ))}
+        </ul>
+      </details>
     </div>
-    <div class="navbar-end gap-2">
-      <ul class="menu menu-horizontal hidden sm:flex">
-        {enlaces.map((e) => (
-          <li><a href={e.href}>{e.texto}</a></li>
-        ))}
-      </ul>
-      <a href={`tel:${tel}`} class="btn btn-sm btn-primary hidden sm:inline-flex">Llamar</a>
+    <a href="#inicio" class="text-center font-display text-xl font-semibold tracking-normal md:text-2xl">{nombre}</a>
+    <div class="flex items-center justify-end gap-2">
+      <a href={`tel:${tel}`} class="btn btn-sm btn-primary">Llamar</a>
     </div>
   </nav>
 </header>
+<script>
+  const menu = document.getElementById("menu-movil");
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => menu.removeAttribute("open")));
+</script>
